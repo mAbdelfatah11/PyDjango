@@ -1,0 +1,7 @@
+# Exclude any directory named 'venv' at any level
+venv/
+**/venv/
+
+TestProject/
+**/TestProject/
+

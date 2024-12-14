@@ -1,0 +1,28 @@
+To summarize:
+
+	Runtime: The environment in which your code runs.
+	Framework: The toolkit and structure that helps you write and organize your code.
+
+
+
+A framework:
+------------ 
+is essentially a structure that provides a foundation and pre-written code to help developers build applications more efficiently. It offers standardized ways to build and deploy software, incorporating libraries, tools, and best practices to streamline development.
+
+
+Examples: Django (Python), React (JavaScript), Spring (Java).
+
+Django as a software: it is a normal python library which is a collection of packages and modules.
+
+Role: Provides the foundation and tools to simplify the application development process, offering built-in solutions for common tasks (e.g., database access, user authentication).
+
+
+
+A runtime:
+----------
+ is the environment in which a program or application is executed. It consists of the infrastructure and services needed to run a program after it has been compiled.
+
+
+Examples: Python interpreter, nodejs, Java Virtual Machine (JVM), .NET Common Language Runtime (CLR)
+
+Role: Ensures that the code runs as intended on the host machine, managing memory, executing instructions, and handling system interactions.

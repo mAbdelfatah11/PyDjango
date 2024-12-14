@@ -1,0 +1,15 @@
+- pip --version
+- pip install virtualenv
+- virtualenv venv
+- source venv/Scripts/activate
+- pip install django
+- django-admin startproject <project-name>
+- cd <project-name>
+- python manage.py runserver
+- python manage.py startapp <app-name>
+
+- add app "fullname" in the "INSTALLED_APPS" section at the main project "settings.py" - get app "class" name from the apps.py file in the app dir - ex: <app-name>.apps.<class-name>
+- create app "templates" dir , inside it create another dir with the same app name "appname" to hold template files
+
+- create "urls.py" in ur app dir, copy content From the project main urls.py file, paste it here then delete and add ur custom urls
+- include ur cutsom app "urls.py" in the main "urls.py" using "include" method
