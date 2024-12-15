@@ -8,7 +8,7 @@ from .filters import JobFilter
 # Create your views here.
 
 def job_list(request):
-    job_list = Job.objects.all()
+    job_list = Job.objects.all()        # access Job model using django model queryset
 
     ## filters
     myfilter = JobFilter(request.GET,queryset=job_list)
@@ -25,7 +25,7 @@ def job_list(request):
 
 
 
-def job_detail(request , slug):
+def job_detail(request , slug):         # here we use slug instead of id, slug is configured in the model to be identical to title field
     job_detail = Job.objects.get(slug=slug)
 
     if request.method=='POST':

@@ -154,3 +154,51 @@ Access Database:
 * you need to configure "database access credentials" inside "settings" file in the default app
 * each backend db has some different configs inside the "DATABASES" directive
 * you can show it up at:
+
+
+Models:
+
+* Database representation scheme in django
+* you actually represent any object using its approperiate model class which result in a table
+* In the "INSTALLED_APPS" directive you find default imported apps that relates to admin home page, authentication and other, django by default create any required models for these apps which in turn creates the corresponding table in db, you just need to apply migrations first time you create the porject to apply that
+* to access the default admin page for the first time using /admin, you need to create a super user using the following command, this creates the user using the authentication app and save it in the auth model:
+```bash
+$ python manage.py createsuperuser    
+```
+
+Migrations:
+* it is all about how to convert the coded models to an actual DB tables 
+* the following commands, one creates the migration script which defines the query of how the DB change will be applied like creatng table, creating fields and othes, the other one applies the change:
+
+```bash
+    $ python manage.py makemigrations           (# create migrations script)
+    $ python manage.py migrate                  (# apply migrations)
+```
+
+* Add the model to the default admin page, the default admin page allows you to access the created models interactivly, create any object with the required data:
+```
+    from .models import Job
+    admin.site.register(Job)
+```
+
+* run server to show and interact wit the admin page
+
+Django Model Queryset:    (ref: https://docs.djangoproject.com/en/5.1/ref/models/querysets/)
+* Django's ORM (Object-Relational Mapping) abstracts the database interactions, letting you interact with your database in Python without writing SQL.
+* "Django queryset" methods: in django arch model we use "views" to access "models"  using Django's "queryset" methods:
+```
+    from myapp.models import Product
+
+    def product_list(request):
+        # Retrieve all records from the Product model
+        products = Product.objects.all()
+```
+
+
+Django Rest Framework:  (https://www.django-rest-framework.org/)
+* you need Rest API in django to export app models db as "json" and expose access to this data and make it easier for other platforms to integrate with app backend using this api
+* Exposed API: other platforms like androide, ios apps or js apps can connect to the application and retrive models data only using the exposed api
+* Installation: follow the refernce url for the framework installation 
+* create the required app files: (names isn't restrictive)
+    - serializer.py: convert backend data models to json
+    - api.py: retrive the exported data

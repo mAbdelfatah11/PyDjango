@@ -1,10 +1,9 @@
 - pip --version
-- pip install virtualenv
-- virtualenv venv
+- pip install virtualenv 	
+- virtualenv venv			(virtualenv -p python3.8 <name>) --> virtulenv based on a specific version
 - source venv/Scripts/activate
-- pip install django
+- pip install Django			(pip freeze > requiremnets.txt) --> to save the installed packages versions
 - django-admin startproject <project-name>
-- cd <project-name>
 - python manage.py runserver
 - python manage.py startapp <app-name>
 

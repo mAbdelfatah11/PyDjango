@@ -3,8 +3,7 @@
 - virtualenv venv
 - source venv/Scripts/activate
 - pip install django
-- django-admin startproject <project-name>
-- cd <project-name>
+- django-admin startproject <project-name> .    (. adds manage.py to the current working dir, not inside the sub folder)
 - python manage.py runserver
 - python manage.py startapp <app-name>
 

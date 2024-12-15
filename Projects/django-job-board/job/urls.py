@@ -7,7 +7,7 @@ from . import api
 app_name='job'
 
 urlpatterns = [
-    path('',views.job_list , name='job_list'),
+    path('',views.job_list , name='job_list'),  # name: it is a refernce to the url path to be used in different app code like html templates, instead of using / , u use /job_details inside code 
     path('add',views.add_job , name='add_job'),
     path('<str:slug>',views.job_detail , name='job_detail'),
 
