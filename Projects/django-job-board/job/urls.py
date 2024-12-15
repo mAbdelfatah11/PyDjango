@@ -7,11 +7,11 @@ from . import api
 app_name='job'
 
 urlpatterns = [
-    path('',views.job_list , name='job_list'),  # name: it is a refernce to the url path to be used in different app code like html templates, instead of using / , u use /job_details inside code 
-    path('add',views.add_job , name='add_job'),
-    path('<str:slug>',views.job_detail , name='job_detail'),
+    path('',views.job_list , name='job_list'),  # nothing after the base "jobs/" will return the job_list function ,,,,
+    path('add',views.add_job , name='add_job'), #  name: it is a refernce to the url path to be used in the current app locations like html templates, instead of using / , u use /job_details inside code 
+    path('<str:slug>',views.job_detail , name='job_detail'),   # use slug field name to refer to each job instaed of the id (more to know at models.py)
 
-    ## api
+    ## apis
     path('api/jobs',api.job_list_api , name='job_list_api'),
     path('api/jobs/<int:id>',api.job_detail_api , name='job_detail_api'),
 

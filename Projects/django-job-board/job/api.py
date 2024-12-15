@@ -7,6 +7,7 @@ from rest_framework.decorators import api_view
 from rest_framework import generics
 
 
+## Function based views
 @api_view(['GET'])
 def job_list_api(request):
     all_jobs = Job.objects.all()
@@ -21,9 +22,10 @@ def job_detail_api(request,id):
     return Response({'data':data})
 
 
-
+## class based views (give more features in less code implementation)
+## ex: using the class "ListCreateAPIView", you can list "get" or Create "post" at the same time, feature of class bases views
 class JobListApi(generics.ListCreateAPIView):
-    queryset = Job.objects.all()
+    queryset = Job.objects.all()        # queryset is a method in the class "generics.ListCreateAPIView" so it is name restrictive
     serializer_class = JobSerializer
 
 

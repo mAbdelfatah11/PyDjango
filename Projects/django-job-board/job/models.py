@@ -49,9 +49,16 @@ class Job(models.Model):  # table == Model
             
     '''
 
+    # save
+    '''
+        - when you hit save, the following save function will apply the "slug" field format automatically 
+        - class "Job" that inherites from "models" already has a builtin method clalled "save" to manage the save process
+        - in the following save method, you actually override the current method, you call the base save from the class
+        - before that, make the "slugifying process" which reformats the "title" and add it to the "slug" field
+    '''
     def save(self,*args, **kwargs):
         self.slug = slugify(self.title) # add slug field equal to the job titile before saving the job details
-        super(Job,self).save(*args, **kwargs)      # once you press save button,
+        super(Job,self).save(*args, **kwargs)      # call base "save" method 
 
     # in the admin page, when i create job mnually, it displayes the created job with name called "job object <number>"
     # i need to return the actual job title when i create object from the class "job"
