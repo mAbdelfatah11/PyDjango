@@ -1,0 +1,9 @@
+- create tests dir in the app dir
+- create test files starting by test_ like: test_models.py   test_views.py
+- install requirements.txt  (include the added testing utilities)
+- create setup.cfg which cintain the default parameters to be passed to the installed utilities like nose
+- create test cases, start follow the following for more details:
+    - https://www.digitalocean.com/community/tutorials/how-to-add-unit-testing-to-your-django-project
+    - https://www.coursera.org/learn/test-and-behavior-driven-development-tdd-bdd/
+    - https://docs.google.com/document/d/1oKRqlnfbYLpqBrCxja-f5xNmbex2ULpXk2VyrqdG0BY/edit?tab=t.0
+    - look for the installed vides for TDD demos from coursera

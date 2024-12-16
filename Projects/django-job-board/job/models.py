@@ -61,7 +61,7 @@ class Job(models.Model):  # table == Model
         super(Job,self).save(*args, **kwargs)      # call base "save" method 
 
     # in the admin page, when i create job mnually, it displayes the created job with name called "job object <number>"
-    # i need to return the actual job title when i create object from the class "job"
+    # i need to return the actual job title when i create object from the class "job" so that job appears with thier name
     def __str__(self):
         return self.title
 
