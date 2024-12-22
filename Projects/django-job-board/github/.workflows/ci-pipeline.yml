@@ -10,6 +10,5 @@ jobs:
       run: echo "starter workflow"
     - name: list files
       run: ls
-    - name: read readme file
+    - name: read readme 
       run: cat StudyNotes.md
-      
