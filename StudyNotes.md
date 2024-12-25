@@ -152,7 +152,7 @@ Access Database:
 * "view" should access "model" to retrive data from the "database"
 * Django comes with a built-in SQLite database. However, we can use the various databases in Django.
 * you need to configure "database access credentials" inside "settings" file in the default app
-* each backend db has some different configs inside the "DATABASES" directive
+* each backend db type has some different configs inside the "DATABASES" directive
 * you can show it up at:
 
 
@@ -202,3 +202,17 @@ Django Rest Framework:  (https://www.django-rest-framework.org/)
 * create the required app files: (names isn't restrictive)
     - serializer.py: convert backend data models to json
     - api.py: retrive the exported data
+
+
+
+mysql database with python:  
+
+- "follow python-mysql-guide forked in github account"
+* python uses a pure written coded python libraray to connect and manuplate mysql database
+* mysql-connector-python: library in python that supports dealing with mysql database directly from python code
+* InSTALLATION:
+```
+    pip install mysql-connector-python
+```
+
+* Connection in code: follow python-mysql-guide forked in github account

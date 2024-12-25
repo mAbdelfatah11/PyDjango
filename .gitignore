@@ -1,9 +1,8 @@
 # Exclude any directory named 'venv' at any level
 venv/
-**/venv/
 
+migrations/
 __pycache__/
-**/__pycache__/
 *.pyc
 
 
