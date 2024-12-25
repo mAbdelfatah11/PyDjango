@@ -205,9 +205,17 @@ Django Rest Framework:  (https://www.django-rest-framework.org/)
 
 
 
-mysql database with python:  
+## Django - mysql database connection:  
+
+* in Django you are not required to install specific connectors or libraries, django manages the connection to db
+* "DATABASES": you just need to setup the required connection paramteters in project "settings" specifically in DATABASES directive
+* follow this link for different dbs setup:  https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+* "migrations": after the connection has been made, apply db migrations in order djsngo to remigrate data to the new db instance like mysql.
+
+## python mysql connection:
 
 - "follow python-mysql-guide forked in github account"
+- for general python connection to mysql db, it is required to install specific utlities
 * python uses a pure written coded python libraray to connect and manuplate mysql database
 * mysql-connector-python: library in python that supports dealing with mysql database directly from python code
 * InSTALLATION:
