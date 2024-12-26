@@ -25,6 +25,8 @@ migrations/
 *.bak
 *.swp
 *.DS_Store
+*.bk
+*.md
 Thumbs.db
 
 # Ignore test directories and files

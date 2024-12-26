@@ -7,9 +7,6 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory
 WORKDIR /app
 
-# Install system-level dependencies for building Python packages (including distutils)
-RUN apt-get update && apt-get install -y python3-pip python3-distutils libffi-dev && apt-get clean
-
 # Copy deps file
 COPY requirements.txt . /app/
 
@@ -20,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # All time Eexecutable set as ENTRYPOINT
-ENTRYPOINT [ "python", "manage.py", "runserver" ]
+ENTRYPOINT [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
-# more likely changed Params set as CMD
-CMD [ "0.0.0.0:8000" ]
+# # more likely changed Params set as CMD
+# CMD [ "0.0.0.0:8000" ]
