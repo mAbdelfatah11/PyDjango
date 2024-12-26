@@ -34,7 +34,7 @@ $ django-admin startproject awsamazon             (creates project with default 
 
 * start server:
 ```bash
-$ python awsamazon/manage.py runserver    (start development server for ur application)
+$ python awsamazon/manage.py runserver 0.0.0.0:8000    (start development server for ur application)
 ```
 
         ```
