@@ -5,7 +5,7 @@ on:
   push:  
 
 jobs:
-  test:
+  lint-test:
     runs-on: ubuntu-latest
     steps:
     - name: checkout repo
@@ -20,6 +20,18 @@ jobs:
         cd Projects/django-job-board
         make setup
         make install
+    - name: lint code
+      run: |
+        make lint
+    
+  docker-image:
+    runs-on: ubuntu-latest
+    needs: lint-test
+    steps:
+    - name: docker login
+      run: | 
+        echo "docker login...."
+
 
 
         
