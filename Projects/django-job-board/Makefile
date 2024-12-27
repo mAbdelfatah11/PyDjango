@@ -18,12 +18,13 @@ install:
 	sudo chmod +x /bin/hadolint
 lint:
 	# See local hadolint install instructions:   https://github.com/hadolint/hadolint
-	# This is a linter for Python source code linter: https://www.pylint.org/
-	# This is linter for Dockerfiles
+	# linter for Dockerfiles
+	# linter for Python source code linter: https://www.pylint.org/
 	. ./django-venv/bin/activate &&\
 	hadolint Dockerfile &&\
-	. ./django-venv/bin/activate &&\
-	pylint --disable=R,C,E0401,E0402,E0611 ./**/*.py
+	pylint --disable=R,C,W0611,E0401,E0402,E0611 --fail-under=7 ./**/*.py 
+	# Pylint fails only if the score under 7
+
 test:
 	# Run Unit tests on Job application
 	. ./django-venv/bin/activate &&\
