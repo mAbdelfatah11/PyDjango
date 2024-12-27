@@ -22,6 +22,7 @@ jobs:
         make install
     - name: lint code
       run: |
+        cd Projects/django-job-board
         make lint
     
   docker-image:
