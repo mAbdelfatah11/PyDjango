@@ -1,4 +1,4 @@
-# Django installation:
+## Django installation:
 
 * install pip3                          >$ pip3 --version          ;
 * install virtualenv                    >$ pip install virtualenv
@@ -48,14 +48,14 @@ $ python awsamazon/manage.py runserver 0.0.0.0:8000    (start development server
 
 
 
-# * Django Architectural Pattern:   
+## Django Architectural Pattern:   
 * _(show up the attchached note "MVC vs MVT" to know more)_
 *  Architectural pattern: define the overall structure of an application and the relationships between its components.
 * Django follows  MVT Architectural Pattern:
 * MVT: model view template
 
 
-# * Create multiple apps in the same project:
+### Create multiple apps in the same project:
 * the new app is a discrete app in the smae project, it holds different "views" file, it might be like a new feature
 * you then add URL paths in the "urls" file to route to the new app views
 
@@ -63,7 +63,7 @@ $ python awsamazon/manage.py runserver 0.0.0.0:8000    (start development server
 * ` python manage.py startapp amazon            (create another app folder and files in the same project)`
 
 
-# * Create a new webpage in the new application:   (check awsamazon folder "urls && views files")
+### Create a new webpage in the new application:   (check awsamazon folder "urls && views files")
 * accroding to the MVT arch pattern for django: each "url" has to have a "view" to be routed to
 * in the default app which is "awsamazon":
 * create the url path: choose which string do you want to use to reach webpage like url/hello for example
@@ -72,7 +72,7 @@ $ python awsamazon/manage.py runserver 0.0.0.0:8000    (start development server
 * in the default app "awsamazon":
 * import the view module, and add the function to the path
 
-Refactor "URLs":
+### Refactor "URLs":
 
 -----------------
 
@@ -85,7 +85,7 @@ Refactor "URLs":
 * just "include" the "app.urls" path inside the main urls file in the default app: path('amazon/', include("amazon.urls")),
 
 
-Templates:
+## Templates:
 
 ==========
 
@@ -95,7 +95,7 @@ Templates:
 * it's an advanced step in the MVT arch pattern:   routers --> view ---> template
 * ex response that call templates instead of http HttpResponse:
 
-How Template Works:
+### How Template Works:
 
 -------------------
 
@@ -114,7 +114,7 @@ How Template Works:
 * you should add that full class name like:  "amazon.apps.amazonConfig"
 
 
-* "TEMPLATES" :
+### "TEMPLATES" :
 * it has important params like,
 * 'APP_DIRS': True
 * it tells python interpriter to search for any folder called "templates" all over the app dires
@@ -126,7 +126,7 @@ How Template Works:
 
 
 
-Static files:
+## Static files:
 
 * you can serve static files like images, css, javascripts files
 
@@ -147,7 +147,7 @@ Static files:
 *     <link type="text/css" rel="stylesheet" href="{% static  'products/css/style.css'%}">
 
 
-Access Database:
+## Access Database:
 
 * "view" should access "model" to retrive data from the "database"
 * Django comes with a built-in SQLite database. However, we can use the various databases in Django.
@@ -156,7 +156,7 @@ Access Database:
 * you can show it up at:
 
 
-Models:
+## Models:
 
 * Database representation scheme in django
 * you actually represent any object using its approperiate model class which result in a table
@@ -166,7 +166,7 @@ Models:
 $ python manage.py createsuperuser    
 ```
 
-Migrations:
+## Migrations:
 * it is all about how to convert the coded models to an actual DB tables 
 * the following commands, one creates the migration script which defines the query of how the DB change will be applied like creatng table, creating fields and othes, the other one applies the change:
 
@@ -183,7 +183,7 @@ Migrations:
 
 * run server to show and interact wit the admin page
 
-Django Model Queryset:    (ref: https://docs.djangoproject.com/en/5.1/ref/models/querysets/)
+## Django Model Queryset:    (ref: https://docs.djangoproject.com/en/5.1/ref/models/querysets/)
 * Django's ORM (Object-Relational Mapping) abstracts the database interactions, letting you interact with your database in Python without writing SQL.
 * "Django queryset" methods: in django arch model we use "views" to access "models"  using Django's "queryset" methods:
 ```
@@ -195,13 +195,30 @@ Django Model Queryset:    (ref: https://docs.djangoproject.com/en/5.1/ref/models
 ```
 
 
-Django Rest Framework:  (https://www.django-rest-framework.org/)
+## Django Rest Framework:  (https://www.django-rest-framework.org/)
 * you need Rest API in django to export app models db as "json" and expose access to this data and make it easier for other platforms to integrate with app backend using this api
 * Exposed API: other platforms like androide, ios apps or js apps can connect to the application and retrive models data only using the exposed api
 * Installation: follow the refernce url for the framework installation 
 * create the required app files: (names isn't restrictive)
     - serializer.py: convert backend data models to json
     - api.py: retrive the exported data
+
+
+## Testing:
+
+- create tests dir in the app dir
+- create test files starting by test_ like: test_models.py   test_views.py
+- install requirements.txt  (include the added testing utilities)
+- create test cases, start follow the following for more details:
+    - https://www.digitalocean.com/community/tutorials/how-to-add-unit-testing-to-your-django-project
+    - https://www.coursera.org/learn/test-and-behavior-driven-development-tdd-bdd/
+    - https://docs.google.com/document/d/1oKRqlnfbYLpqBrCxja-f5xNmbex2ULpXk2VyrqdG0BY/edit?tab=t.0
+    - look for the installed vides for TDD demos from coursera
+
+- run tests:
+```
+ python manage.py test <app-folder>
+```
 
 
 

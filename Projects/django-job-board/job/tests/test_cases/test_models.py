@@ -1,4 +1,4 @@
-## in models test, we assume that there is no production db, so each test case generates its required object data
+## in models test, we assume that there is no available db, so each test case generates its required object data
 
 from django.test import TestCase
 from django.template.defaultfilters import slugify
