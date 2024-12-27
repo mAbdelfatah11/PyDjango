@@ -224,3 +224,22 @@ Django Rest Framework:  (https://www.django-rest-framework.org/)
 ```
 
 * Connection in code: follow python-mysql-guide forked in github account
+
+## Docker:
+
+* install 'hadolint' extention for instruction best practuces in dockerfile 
+* install 'docker' extention
+* follow rest docker best practices listed in a .PPT file in this article: https://tech.aabouzaid.com/2021/09/docker-best-practices-workshop-presentation.html
+
+## Ansible:
+- automate repititive tasks using ansible
+- use playbook to automate creation and deletion of unused containers and images
+- Installation, install 'ansible-core' package:
+    - Windows: use 'WSL' : >$ sudo dnf install ansible-core
+    - linux: $> sudo apt install ansible-core
+- create playbook
+- run it:
+    ```
+    ansible-playbook playbook.yml -vv
+
+    ```

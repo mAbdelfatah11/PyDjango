@@ -19,5 +19,9 @@ COPY . /app/
 # All time Eexecutable set as ENTRYPOINT
 ENTRYPOINT [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
-# # more likely changed Params set as CMD
+# More likely changed Params set as CMD
 # CMD [ "0.0.0.0:8000" ]
+
+# Port metadata
+EXPOSE 8000
+
