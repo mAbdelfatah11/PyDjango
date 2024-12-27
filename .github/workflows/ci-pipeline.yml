@@ -24,6 +24,10 @@ jobs:
       run: |
         cd Projects/django-job-board
         make lint
+    - name: unit-testing for Job application
+      run: | 
+        cd Projects/django-job-board
+        make test      
     
   docker-image:
     runs-on: ubuntu-latest
