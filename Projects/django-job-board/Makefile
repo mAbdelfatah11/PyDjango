@@ -8,14 +8,17 @@
   
 setup:
 	# Create python virtualenv using  python builtin 'venv' module
-	python3 -m venv ./django-venv
+	# install pylint for python linting
+	python3 -m venv ./django-venv &&\
+	pip install pylint &&\
+	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 &&\
+	sudo chmod +x /bin/hadolint
 install:
 	# This should be run from inside a virtualenv
 	. ./django-venv/bin/activate &&\
 	pip install --upgrade pip &&\
-	pip install -r requirements.txt &&\
-	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64 &&\
-	sudo chmod +x /bin/hadolint
+	pip install -r requirements.txt
+	sleep 3
 lint:
 	# See local hadolint install instructions:   https://github.com/hadolint/hadolint
 	# linter for Dockerfiles
@@ -24,14 +27,22 @@ lint:
 	hadolint Dockerfile &&\
 	pylint --disable=R,C,W0611,E0401,E0402,E0611 --fail-under=7 ./**/*.py 
 	# Pylint fails only if the score under 7
+	sleep 2
 
 test:
 	# Run Unit tests on Job application
 	. ./django-venv/bin/activate &&\
 	python3 manage.py test job/
+	sleep 2
 run:
-	# Run django server in background
+	# Run django server
 	. ./django-venv/bin/activate &&\
 	python manage.py runserver 0.0.0.0:8080 &
+docker:
+	. ./django-venv/bin/activate &&\
+	docker images &&\
+	docker build -t django-job-board . &&\
+	docker run -d --name django-job-board -p 8000:8000 django-job-board 
 
-all: install lint test
+local-runtime: install lint test run
+docker-runtime: install lint test docker
