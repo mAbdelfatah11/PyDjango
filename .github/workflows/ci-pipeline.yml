@@ -47,7 +47,20 @@ jobs:
         context: "{{defaultContext}}:./Projects/django-job-board"
         push: false
         tags: ${{ vars.DOCKERHUB_USERNAME }}/django-job-board:${{ github.sha }}
+    
+    - name: Test Docker Image
+      run: | 
+        docker images
+        docker run -d --name django-job-board -p 8000:8000 ${{ vars.DOCKERHUB_USERNAME }}/django-job-board:${{ github.sha }}
         
+        export IP=$(docker inspect django-job-board -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}')
+        echo $IP
+
+        echo Testing Image URL using wget
+        curl -s http://127.0.0.1:8000/jobs/ | grep "Jobs Available"
+
+
+
 # jobs:
 #     unit-testing:
 #         name: Unit Testing
