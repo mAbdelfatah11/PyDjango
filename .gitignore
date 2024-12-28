@@ -1,5 +1,6 @@
-# Exclude any directory named 'venv' at any level
+# Exclude any directory virtualenv at any level
 venv/
+django-venv/
 
 migrations/
 __pycache__/

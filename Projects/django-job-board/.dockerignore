@@ -1,5 +1,7 @@
 # Ignore Python virtual environments
 venv/
+.venv/
+django-venv/
 *.pyc
 __pycache__/
 
