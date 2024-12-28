@@ -57,7 +57,7 @@ jobs:
         echo $IP
 
         echo Testing Image URL using wget
-        curl -s 127.0.0.1:8000/jobs/ | grep "Jobs Available"
+        wget -q -O - http://127.0.0.1:8000/jobs/ | grep "Jobs Available"
 
 
 
