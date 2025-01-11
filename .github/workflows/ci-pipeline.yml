@@ -4,6 +4,10 @@ on:
   workflow_dispatch: 
   push:  
 
+# env:
+#   EKS_CLUSTER_NAME: EKS-Cluster
+#   AWS_REGION: us-east-1
+
 jobs:
   Unit-Testing:
     runs-on: ubuntu-latest
@@ -58,3 +62,37 @@ jobs:
 
         echo Testing Image URL using wget
         wget -q -O - http://127.0.0.1:8000/jobs/ | grep "Jobs Available"
+
+  deploy:
+    name: Deployment on EKS
+    runs-on: ubuntu-latest
+    steps:
+    # - name: Set short git commit SHA
+    #   id: commit
+    #   uses: prompt/actions-commit-hash@v2
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v4
+      with:
+        version: '1.28.0' # equal to EKS-Cluster k8s version
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{env.AWS_REGION}}
+
+    - name: Configure kubeconfig
+      uses: azure/k8s-set-context@v4
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+
+    - name: test EKS connectivity
+      run: | 
+        kubectl get nodes
+        kubectl auth whoami
