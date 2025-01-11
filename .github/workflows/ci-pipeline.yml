@@ -64,7 +64,7 @@ jobs:
 
   deploy:
     name: Deployment on EKS
-    needs: Docker-Build
+    # needs: Docker-Build
     runs-on: ubuntu-latest
     steps:
     # - name: Set short git commit SHA
@@ -92,7 +92,7 @@ jobs:
       run: | 
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile cluster-admin
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile cluster-admin
-        aws configure set region ${{ env.AWS_REGION }} --profile default
+        aws configure set region ${{ env.AWS_REGION }} --profile cluster-admin
 
     - name: Verify AWS CLI Configuration
       run: |
