@@ -4,10 +4,6 @@ on:
   workflow_dispatch: 
   push:  
 
-# env:
-#   EKS_CLUSTER_NAME: EKS-Cluster
-#   AWS_REGION: us-east-1
-
 jobs:
   Unit-Testing:
     runs-on: ubuntu-latest
