@@ -90,9 +90,9 @@ jobs:
     # set the aws profile for access entry who thier aws cli profile name will be refernced in the kubeconfig
     - name: set aws profile
       run: | 
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile cluster-admin
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile cluster-admin
-        aws configure set region ${{ env.AWS_REGION }} --profile cluster-admin
+        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile default
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile default
+        aws configure set region ${{ env.AWS_REGION }} --profile default
 
     - name: Verify AWS CLI Configuration
       run: |
